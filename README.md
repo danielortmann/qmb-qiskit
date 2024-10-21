@@ -1,57 +1,35 @@
-# Codes for the FOPRA34
+# Simulating Quantum Many-Body Dynamics on a Superconducting Digital Quantum Computer using Qiskit
 
-This repository will be updated to contain the example codes for the exercises.
+**FOPRA 34, June 2023**
 
-Qiskit documentation: <https://qiskit.org/documentation/>
+Unlike classical computers, quantum computers harness quantum mechanical properties such as superposition and entanglement. 
+For this reason, quantum computers are expected to be more powerful than classical computers. 
+Enormous progress has been made over the last decades in building a universal and practical quantum computer. Nowadays, many quantum platforms are available, such as cold atoms in optical lattices, trapped ions, superconducting qubits and photonic qubits, which are not yet fault-tolerant, but suffer from noise due to interaction with the environment. 
+Among these platforms, superconducting qubits are, for their flexibility and scalability, one of the leading candidates for building a practical large-scale quantum computer.
 
+One of the most promising application of quantum computers lies in the simulation of interacting quantum many-body systems, which become rapidly prohibitive to describe using classical computers.
+In this practical, we use Qiskit - the open-source software development kit of IBM's superconducting quantum hardware - to simulate the phenomenon of Dynamical Phase Transitions (DQPTs) in a transverse field Ising model.
+By converting the closed system quantum dynamics into a corresponding quantum circuit, we extract relevant observables such as the magnetization, the Loschmidt echo, and the entanglement dynamics from it. 
+We also employ simulation methods such as Trotterization and quantum state tomography and, by applying noise models such as the generalized amplitude damping channel, account for the fact that current quantum devices are not fault-tolerant but prone to errors due to the interaction with the environment.
 
-## Setup for laptops and PC
+The theoretical description of the simulation problems as well as the programming and mathematical tasks are provided in `instructions/`[^1].
+Our final report is [here](/report.pdf).
 
-You can choose one option below:
-1. Download ancaonda from <https://www.anaconda.com/download>
-2. Download miniconda from <https://docs.conda.io/en/latest/miniconda.html> and install necessary packages with
-```
-conda install numpy matplotlib
-```
-and 
-```
-pip install qiskit qiskit_experiments
-```
-3. Google colab <https://colab.research.google.com/> from web brower without
-   any installation
+| Loschmidt Rate  | Energy Measurement  | Trotterized Unitary |
+| :------------: |:---------------:| :-----:|
+| <img src="plots/lamda1_sim_l6.png" alt="drawing" width="150%"/> | <p align="center"><img src="plots/heatmap.png" alt="drawing" width="60%"/> | <p align="center"><img src="plots/symTrotter.png" alt="drawing" width="180%"/> |
 
-## Starting a python notebook
-1. Open a terminal
-2. Go to the directy where you keep your scripts/notebooks using `cd some/directory`
-3. Enter `jupyter notebook`
-   This should start a local server, where you can create python notbooks etc.
-   If you close the web page, open the page http://localhost:8888/ 
-4. Do your calculations :-)
+| von Neumann and Rènyi entropy | Loschmidt Echo/Rate and Magnetization | VQE Ansatz |
+| :------------: |:---------------:| :-----:|
+| <img src="plots/Entropy.png" alt="drawing" width="150%"/> | <img src="plots/echo_mag_DQFT.png" alt="drawing" width="150%"/> |  <img src="plots/vqe_ansatz_circuit.png" alt="drawing" width="150%"/>  |
 
-   Ipython magic for including the plots into the notebooks:
-   ``` 
-   %matplotlib inline
-   ```
-5. Once you're done, stop the server in the terminal by pressing Ctrl-C and confirm with 'y'
+--------------------------------------------------------
+## Authors
+* Daniel Ortmann
+* Patrick Hopf
+* Philipp Thoma
 
-## Git 
+--------------------------------------------------------
+## Reference
 
-- open a terminal
-- Get a local copy of the remote repoistory with `git clone https://gitlab.lrz.de/cmt-computational-physics/fopra34.git`
-  Alternatively, initialize a new repository in an exisiting folder with `git init`.
-- write code and modify local files
-- `git status` shows which files have been changed.
-- `git diff changed_script.py` shows what you have changed in the given file.
-- `git add changed_script.py` marks the file `changed_script.py` to be added to the next git snapshot
-- `git commit -m "helpful message to describe changes"` to create a new "snapshot"
-- `git log` to show a list of all snapshots. 
-
-  The first line of each "snapshot" contains a hash value (like `0d4e77a6ef3224a51f6a39c8e41a9cbd5778ca92`)
-  which can be used as reference for the snapshot (the first 8 characters of the hash are usually enough).
-  For example to view changes of this README.md file since the first commit inside this repository,
-  use `git diff README.md`.
-- `git pull` to fetch changes from the remote repository (if you initialized it with `git clone`) and merge them into
-  your version of the code.
-  `git push` is the opposite, it uploads to a remote repository.
-
-For a 10-minute introduction, see for example <https://guides.github.com/introduction/git-handbook/>.
+[^1]: Prof. Dr. Michael Knap., 2023. Simulating quantum many-body dynamics on a current digital quantum computer. Technical University Munich, Physics Department. [Sources.](/instructions/)

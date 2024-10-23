@@ -13,6 +13,7 @@ By converting the closed system quantum dynamics into a corresponding quantum ci
 We also employ simulation methods such as Trotterization and quantum state tomography and, by applying noise models such as the generalized amplitude damping channel, account for the fact that current quantum devices are not fault-tolerant but prone to errors due to the interaction with the environment.
 
 The theoretical description of the simulation problems as well as the programming and mathematical tasks are provided in `instructions/`[^1].
+
 Our final report is [here](/report.pdf).
 
 | Loschmidt Rate  | Energy Measurement  | Trotterized Unitary |
